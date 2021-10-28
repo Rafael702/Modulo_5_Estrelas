@@ -86,7 +86,6 @@ public class CarroController {
     @DeleteMapping("/{nomeDoCarro}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletarCarro(@PathVariable String nomeDoCarro) {
-        List<CarroDTO> removerCarro = new ArrayList<>();
         for (CarroDTO referencia : concessionaria) {
             if (referencia.getNome().equalsIgnoreCase(nomeDoCarro)) {
                 concessionaria.remove(referencia);
