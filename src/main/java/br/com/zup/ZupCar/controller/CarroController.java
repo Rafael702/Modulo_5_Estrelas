@@ -91,8 +91,8 @@ public class CarroController {
             if (referencia.getNome().equalsIgnoreCase(nomeDoCarro)) {
                 concessionaria.remove(referencia);
             }
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Não encontrado");
         }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Não encontrado");
     }
 
 }
