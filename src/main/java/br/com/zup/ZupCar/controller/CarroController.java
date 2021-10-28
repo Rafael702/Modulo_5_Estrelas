@@ -67,6 +67,7 @@ public class CarroController {
     }
 
     @PutMapping("/{nomeDoCarro}")
+    @ResponseStatus(HttpStatus.OK)
     public CarroDTO atualizarCarro(@PathVariable String nomeDoCarro, @RequestBody CarroDTO carroDTO) {
         CarroDTO carroObjeto = null;
         for (CarroDTO objeto : concessionaria) {
@@ -80,6 +81,18 @@ public class CarroController {
             }
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Não Encontrado");
+    }
+
+    @DeleteMapping("/{nomeDoCarro}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletarCarro(@PathVariable String nomeDoCarro) {
+        List<CarroDTO> removerCarro = new ArrayList<>();
+        for (CarroDTO referencia : concessionaria) {
+            if (referencia.getNome().equalsIgnoreCase(nomeDoCarro)) {
+                concessionaria.remove(referencia);
+            }
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Não encontrado");
+        }
     }
 
 }
