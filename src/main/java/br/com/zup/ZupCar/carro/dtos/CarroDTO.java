@@ -1,4 +1,4 @@
-package br.com.zup.ZupCar.controller.dtos;
+package br.com.zup.ZupCar.carro.dtos;
 
 public class CarroDTO {
     private String nome;
